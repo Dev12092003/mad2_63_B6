@@ -4,8 +4,10 @@ import android.nfc.Tag
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 
 class MainActivity : AppCompatActivity() {
     val Tag="MainActivity"
@@ -18,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         display("on start")
+        dis("123")
     }
 
     override fun onResume() {
@@ -44,7 +47,10 @@ class MainActivity : AppCompatActivity() {
         Log.i(Tag,"$msg is called")
     }
     fun dis(msg:String){
-        //Snackbar.make(findViewById(),)
+        //Snackbar.make(R.id.mainfram)
+        val myCoordinatorLayout = findViewById<CoordinatorLayout>(R.id.myCoordinatorLayout)
+        Snackbar.make(myCoordinatorLayout, R.string.email_sent, Snackbar.LENGTH_SHORT).show()
     }
+
 
 }
